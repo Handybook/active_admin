@@ -25,9 +25,8 @@ module ActiveAdmin
 
         headers['X-Accel-Buffering'] = 'no'
         headers['Cache-Control'] ||= 'no-cache'
-        headers['Content-Type'] = 'text/csv; charset=utf-8'
+        headers['Content-Type'] ='text/csv'
         headers['Content-Disposition'] = "attachment; filename=\"#{csv_filename}\""
-        headers.delete("Content-Length")
         response.status = 200
         self.response_body = Enumerator.new do |csv|
           csv << CSV.generate_line(columns.map(&:name))
