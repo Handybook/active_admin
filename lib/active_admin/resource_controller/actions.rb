@@ -11,11 +11,11 @@ module ActiveAdmin
       super(options) do |format|
         block.call(format) if block
         format.html { render active_admin_template('index') }
-        format.csv do
-          headers['Content-Type'] = 'text/csv; charset=utf-8'
-          headers['Content-Disposition'] = %{attachment; filename="#{csv_filename}"}
-          render active_admin_template('index')
-        end
+        # format.csv do
+        #   headers['Content-Type'] = 'text/csv; charset=utf-8'
+        #   headers['Content-Disposition'] = %{attachment; filename="#{csv_filename}"}
+        #   render active_admin_template('index')
+        # end
       end
     end
     alias :index! :index
