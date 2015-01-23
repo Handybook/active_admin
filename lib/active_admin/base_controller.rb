@@ -10,7 +10,7 @@ module ActiveAdmin
     helper ::ActiveAdmin::ViewHelpers
 
     layout :determine_active_admin_layout
-    force_ssl
+    force_ssl unless Rails.env.test?
 
     before_filter :only_render_implemented_actions
     before_filter :authenticate_active_admin_user
